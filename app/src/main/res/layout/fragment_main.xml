@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.main.OneFragment">
+
+    <TextView
+        android:id="@+id/tv_select_category"
+        style="@style/TextViewPrimary"
+        android:layout_height="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/select_category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_phones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/phones"
+        android:elevation="10dp"
+        android:src="@drawable/ic_phone"
+        app:backgroundTint="@color/color_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_select_category" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_computer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:contentDescription="@string/computer"
+        android:elevation="10dp"
+        android:src="@drawable/ic_computer"
+        app:backgroundTint="@color/color_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_phones"
+        app:layout_constraintStart_toEndOf="@+id/btn_phones"
+        app:layout_constraintTop_toTopOf="@+id/btn_phones" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_health"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:contentDescription="@string/health"
+        android:elevation="10dp"
+        android:src="@drawable/ic_health"
+        app:backgroundTint="@color/color_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_computer"
+        app:layout_constraintStart_toEndOf="@+id/btn_computer"
+        app:layout_constraintTop_toTopOf="@+id/btn_computer" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_books"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:contentDescription="@string/books"
+        android:elevation="10dp"
+        android:src="@drawable/ic_books"
+        app:backgroundTint="@color/color_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_health"
+        app:layout_constraintStart_toEndOf="@+id/btn_health"
+        app:layout_constraintTop_toTopOf="@+id/btn_health" />
+
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="300dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/searchview_background"
+        android:elevation="10dp"
+        app:iconifiedByDefault="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_computer"
+        app:queryBackground="#F5F5F5"
+        app:queryHint="Search" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_scanner"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_scanner"
+        android:backgroundTint="@color/color_scanner"
+        app:layout_constraintBottom_toBottomOf="@+id/search_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/search_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
