@@ -17,7 +17,6 @@ class MainViewModel : ViewModel() {
     fun getNalMoney() {
         viewModelScope.launch {
             phonesList.value = repository.getPhones()
-            Log.d("TAG", "VALUE - ${phonesList.value}")
         }
     }
 }

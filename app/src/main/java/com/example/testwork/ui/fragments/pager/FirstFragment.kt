@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentFirstBinding
 import com.example.testwork.databinding.FragmentMainBinding
@@ -29,6 +31,10 @@ class FirstFragment(private val item: Response<Store>) : Fragment() {
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         binding.tvTitleModel.text = item.body()?.home_store?.get(0)?.title
+        Glide.with(this)
+            .load(item.body()?.home_store?.get(0)?.picture)
+            .circleCrop()
+            .into(binding.ivPhotoMobile)
         return binding.root
     }
 }

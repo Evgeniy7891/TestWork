@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentFirstBinding
 import com.example.testwork.databinding.FragmentThirdBinding
@@ -21,7 +22,11 @@ class ThirdFragment(private val item: Response<Store>) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
-        binding.tvTitle.text = item.body()?.home_store?.get(2)?.title
+        binding.tvTitleModel.text = item.body()?.home_store?.get(2)?.title
+        Glide.with(this)
+            .load(item.body()?.home_store?.get(2)?.picture)
+            .circleCrop()
+            .into(binding.ivPhotoMobile)
         return binding.root
     }
 }
