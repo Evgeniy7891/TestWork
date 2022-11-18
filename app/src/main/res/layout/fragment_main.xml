@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.main.OneFragment">
+    tools:context=".ui.fragments.main.MainFragment">
 
     <TextView
         android:id="@+id/tv_select_category"
@@ -12,9 +12,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
         android:text="@string/select_category"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/phones"
         android:elevation="10dp"
         android:src="@drawable/ic_phone"
@@ -71,28 +69,86 @@
         app:layout_constraintStart_toEndOf="@+id/btn_health"
         app:layout_constraintTop_toTopOf="@+id/btn_health" />
 
+    <TextView
+        android:id="@+id/tv_phones"
+        style="@style/TextViewIcon"
+        android:layout_marginTop="8dp"
+        android:text="@string/phones"
+        app:layout_constraintEnd_toEndOf="@+id/btn_phones"
+        app:layout_constraintStart_toStartOf="@+id/btn_phones"
+        app:layout_constraintTop_toBottomOf="@+id/btn_phones" />
+
+    <TextView
+        android:id="@+id/tv_computer"
+        style="@style/TextViewIcon"
+        android:layout_marginTop="8dp"
+        android:text="@string/computer"
+        app:layout_constraintEnd_toEndOf="@+id/btn_computer"
+        app:layout_constraintStart_toStartOf="@+id/btn_computer"
+        app:layout_constraintTop_toBottomOf="@+id/btn_computer" />
+
+    <TextView
+        android:id="@+id/tv_health"
+        style="@style/TextViewIcon"
+        android:layout_marginTop="8dp"
+        android:text="@string/health"
+        app:layout_constraintEnd_toEndOf="@+id/btn_health"
+        app:layout_constraintStart_toStartOf="@+id/btn_health"
+        app:layout_constraintTop_toBottomOf="@+id/btn_health" />
+
+
+    <TextView
+        android:id="@+id/tv_books"
+        style="@style/TextViewIcon"
+        android:layout_marginTop="8dp"
+        android:text="@string/books"
+        app:layout_constraintEnd_toEndOf="@+id/btn_books"
+        app:layout_constraintStart_toStartOf="@+id/btn_books"
+        app:layout_constraintTop_toBottomOf="@+id/btn_books" />
+
     <SearchView
         android:id="@+id/search_view"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="34dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/searchview_background"
         android:elevation="10dp"
         app:iconifiedByDefault="false"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_computer"
-        app:queryBackground="#F5F5F5"
-        app:queryHint="Search" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_computer">
+
+    </SearchView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_scanner"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/ic_scanner"
         android:backgroundTint="@color/color_scanner"
         app:layout_constraintBottom_toBottomOf="@+id/search_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/search_view" />
+        app:layout_constraintStart_toEndOf="@+id/search_view"
+        app:layout_constraintTop_toTopOf="@+id/search_view" />
+
+    <TextView
+        android:id="@+id/tv_hot_sales"
+        style="@style/TextViewPrimary"
+        android:layout_marginTop="24dp"
+        android:text="Hot sales"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_view" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager_photo_banner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hot_sales" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
