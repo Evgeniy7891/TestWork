@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentMainBinding
@@ -41,7 +42,9 @@ class MainFragment : Fragment() {
                 initialBestSeller(it)
             }
         })
-
+        binding.ivFilter.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_filtersFragment)
+        }
         return binding.root
     }
 

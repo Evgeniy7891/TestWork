@@ -7,4 +7,12 @@
     <string name="computer">Computer</string>
     <string name="health">Health</string>
     <string name="books">Books</string>
+    <string name="text">Text</string>
+    <string-array name="brand">
+        <item>Samsung</item>
+        <item>Iphone</item>
+        <item>Xiaomi</item>
+        <item>Huawei</item>
+        <item>Nokia</item>
+    </string-array>
 </resources>

@@ -9,10 +9,20 @@
       <item name="android:textColor">#010035</item>
       <item name="android:layout_marginStart">17dp</item>
   </style>
+
 <style name="TextViewIcon" parent="TextViewPrimary">
     <item name="android:textSize">12sp</item>
     <item name="fontStyle">normal</item>
     <item name="android:textColor">#010035</item>
     <item name="android:layout_marginStart">0dp</item>
 </style>
+
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@color/color_transparent</item>
+    </style>
+
+
 </resources>

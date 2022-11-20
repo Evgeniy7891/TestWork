@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.testwork"
-        minSdk 21
+        minSdk 24
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -67,4 +67,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     // cardview
     implementation 'androidx.cardview:cardview:1.0.0'
+
 }

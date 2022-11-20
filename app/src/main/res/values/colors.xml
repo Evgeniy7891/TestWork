@@ -10,4 +10,5 @@
     <color name="splash_background">#010035</color>
     <color name="color_icon">#FFFF</color>
     <color name="color_scanner">#FF6E4E</color>
+    <color name="color_transparent">#00FFFFFF</color>
 </resources>

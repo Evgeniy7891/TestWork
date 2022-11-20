@@ -13,7 +13,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.testwork.ui.fragments.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment3"
         android:name="com.example.testwork.ui.splash.SplashFragment"
@@ -23,4 +27,8 @@
             android:id="@+id/action_splashFragment3_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/filtersFragment"
+        android:name="com.example.testwork.ui.fragments.filters.FiltersFragment"
+        android:label="FiltersFragment" />
 </navigation>
