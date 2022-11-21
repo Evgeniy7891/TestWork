@@ -23,6 +23,7 @@ class ThirdFragment(private val item: Response<Store>) : Fragment() {
     ): View? {
         _binding = FragmentThirdBinding.inflate(inflater, container, false)
         binding.tvTitleModel.text = item.body()?.home_store?.get(2)?.title
+        binding.tvSubtitle.text = item.body()?.home_store?.get(2)?.subtitle
         Glide.with(this)
             .load(item.body()?.home_store?.get(2)?.picture)
             .circleCrop()

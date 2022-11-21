@@ -11,14 +11,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/filters_style"
+        android:paddingHorizontal="45dp"
         app:itemIconSize="18dp"
+        app:itemIconTint="@color/white"
+        app:itemPaddingTop="15dp"
+        app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"
-        android:paddingHorizontal="28dp" />
+        app:menu="@menu/bottom_menu" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,11 +27,46 @@
         app:layout_constraintBottom_toBottomOf="@id/bottom_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/tv_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/mark_pro"
+                android:text="Zihuatanejo, Gro"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_local"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_local"
+                app:layout_constraintEnd_toStartOf="@+id/tv_local"
+                app:layout_constraintTop_toTopOf="@+id/tv_local" />
+
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/ic_more"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_local"
+                app:layout_constraintStart_toEndOf="@+id/tv_local"
+                app:layout_constraintTop_toTopOf="@+id/tv_local" />
 
 
             <TextView
@@ -38,30 +74,37 @@
                 style="@style/TextViewPrimary"
                 android:layout_height="34dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/select_category"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_local" />
+
+            <TextView
+                android:id="@+id/tv_view_all"
+                style="@style/TextViewSecond"
+                android:text="view all"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_select_category"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_select_category" />
 
 
             <ImageView
                 android:id="@+id/iv_filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
                 android:src="@drawable/ic_filter"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_select_category"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_more"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_select_category"
-                app:layout_constraintTop_toTopOf="@+id/tv_select_category" />
+                app:layout_constraintTop_toTopOf="@+id/iv_more" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_phones"
-                android:layout_width="wrap_content"
+                android:layout_width="56dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="27dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:contentDescription="@string/phones"
-                android:elevation="10dp"
                 android:src="@drawable/ic_phone"
                 app:backgroundTint="@color/color_icon"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,24 +112,23 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_computer"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="32dp"
                 android:contentDescription="@string/computer"
-                android:elevation="10dp"
                 android:src="@drawable/ic_computer"
                 app:backgroundTint="@color/color_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_phones"
                 app:layout_constraintStart_toEndOf="@+id/btn_phones"
-                app:layout_constraintTop_toTopOf="@+id/btn_phones" />
+                app:layout_constraintTop_toTopOf="@+id/btn_phones"
+                app:layout_constraintVertical_bias="1.0" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_health"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="32dp"
                 android:contentDescription="@string/health"
-                android:elevation="10dp"
                 android:src="@drawable/ic_health"
                 app:backgroundTint="@color/color_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_computer"
@@ -97,9 +139,8 @@
                 android:id="@+id/btn_books"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
+                android:layout_marginStart="32dp"
                 android:contentDescription="@string/books"
-                android:elevation="10dp"
                 android:src="@drawable/ic_books"
                 app:backgroundTint="@color/color_icon"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_health"
@@ -137,38 +178,46 @@
             <TextView
                 android:id="@+id/tv_books"
                 style="@style/TextViewIcon"
+                android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/books"
                 app:layout_constraintEnd_toEndOf="@+id/btn_books"
                 app:layout_constraintStart_toStartOf="@+id/btn_books"
                 app:layout_constraintTop_toBottomOf="@+id/btn_books" />
 
-            <SearchView
+
+            <EditText
                 android:id="@+id/search_view"
-                android:layout_width="280dp"
-                android:layout_height="34dp"
-                android:layout_marginStart="32dp"
+                style="@style/SearchTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/searchview_background"
-                android:elevation="10dp"
+                android:drawableStart="@drawable/lupa"
+                android:elevation="5dp"
+                android:hint="Search"
+                android:paddingHorizontal="15dp"
+                android:textSize="12sp"
                 app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toStartOf="@id/btn_scanner"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_computer">
 
-            </SearchView>
+            </EditText>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_scanner"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="32dp"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="-25dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/ic_scanner"
-                android:backgroundTint="@color/color_scanner"
                 app:layout_constraintBottom_toBottomOf="@+id/search_view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/search_view"
-                app:layout_constraintTop_toTopOf="@+id/search_view" />
+                app:layout_constraintStart_toEndOf="@id/search_view"
+                app:layout_constraintTop_toTopOf="@+id/search_view"
+                app:layout_constraintVertical_bias="0.48000002" />
 
             <TextView
                 android:id="@+id/tv_hot_sales"
@@ -178,11 +227,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search_view" />
 
+            <TextView
+                android:id="@+id/tv_see_more1"
+                style="@style/TextViewSecond"
+                android:text="@string/see_more"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_hot_sales"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_hot_sales" />
+
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager_photo_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_hot_sales" />
@@ -190,16 +248,28 @@
             <TextView
                 android:id="@+id/tv_best_seller"
                 style="@style/TextViewPrimary"
+                android:layout_marginTop="4dp"
                 android:text="Best Seller"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pager_photo_banner" />
 
+            <TextView
+                android:id="@+id/tv_see_more2"
+                style="@style/TextViewSecond"
+                android:text="@string/see_more"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_best_seller"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_best_seller" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="52dp"
                 android:overScrollMode="never"
-                android:paddingBottom="50dp"
+                android:padding="4dp"
+                app:flow_maxElementsWrap="2"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

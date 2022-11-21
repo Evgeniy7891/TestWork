@@ -1,5 +1,6 @@
 package com.example.testwork.ui.fragments.main
 
+import android.graphics.Paint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,15 +17,14 @@ class MainAdapter(private val mList: List<BestSeller>) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.d("TAG", "onCreated!!!")
-        val binding = CardBestSellerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            CardBestSellerItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsBestSeller = mList[position]
-        Log.d("TAG", "nBind - ${ItemsBestSeller.title}")
         holder.bind(ItemsBestSeller)
     }
 
@@ -36,15 +36,25 @@ class MainAdapter(private val mList: List<BestSeller>) :
     // Holds the views for adding it to image and text
     class ViewHolder(private val binding: CardBestSellerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
+        var like = true
         fun bind(bestSeller: BestSeller) {
-            Log.d("TAG", "VIEWHOLDER - ${bestSeller.title}")
             binding.apply {
-                tvPrice.text = bestSeller.price_without_discount.toString()
+                tvPrice.text = "$" + bestSeller.price_without_discount.toString()
                 tvBrand.text = bestSeller.title
+                tvDiscont.text = "$" + bestSeller.discount_price.toString()
+                tvDiscont.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+                ivLike.setOnClickListener {
+                    if (like == true) {
+                        binding.ivLike.setImageResource(R.drawable.ic_selected_like_best_seller)
+                        like = false
+                    } else {
+                        binding.ivLike.setImageResource(R.drawable.ic_like_best_seller)
+                        like = true
+                    }
+                }
                 Glide.with(ivPhotoBestSeller)
                     .load(bestSeller.picture)
-                    .timeout(1000)
+                    .timeout(500)
                     .into(ivPhotoBestSeller)
             }
         }

@@ -23,9 +23,9 @@ class SecondFragment(private val item: Response<Store>) : Fragment() {
     ): View? {
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         binding.tvTitleModel.text = item.body()?.home_store?.get(1)?.title
+        binding.tvSubtitle.text = item.body()?.home_store?.get(1)?.subtitle
         Glide.with(this)
             .load(item.body()?.home_store?.get(1)?.picture)
-            .circleCrop()
             .into(binding.ivPhotoMobile)
         return binding.root
     }

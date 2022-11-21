@@ -11,4 +11,6 @@
     <color name="color_icon">#FFFF</color>
     <color name="color_scanner">#FF6E4E</color>
     <color name="color_transparent">#00FFFFFF</color>
+    <color name="color_search">#90018786</color>
+    <color name="color_filters">#D3100F0F</color>
 </resources>

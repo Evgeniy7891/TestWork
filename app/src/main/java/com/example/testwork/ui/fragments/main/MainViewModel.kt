@@ -1,6 +1,7 @@
 package com.example.testwork.ui.fragments.main
 
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,4 +20,5 @@ class MainViewModel : ViewModel() {
             phonesList.value = repository.getPhones()
         }
     }
+
 }

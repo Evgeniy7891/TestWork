@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -31,10 +32,14 @@ class FirstFragment(private val item: Response<Store>) : Fragment() {
     ): View? {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         binding.tvTitleModel.text = item.body()?.home_store?.get(0)?.title
+        binding.tvSubtitle.text = item.body()?.home_store?.get(0)?.subtitle
         Glide.with(this)
             .load(item.body()?.home_store?.get(0)?.picture)
             .circleCrop()
             .into(binding.ivPhotoMobile)
+        if(item.body()?.home_store?.get(0)?.is_new == true) {
+            binding.tvNew.isVisible = true
+        }
         return binding.root
     }
 }
