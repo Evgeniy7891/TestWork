@@ -1,4 +1,4 @@
-package com.example.testwork.model.homestore
+package com.example.testwork.model.store
 
 data class HomeStore(
     val id: Int,

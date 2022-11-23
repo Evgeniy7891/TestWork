@@ -3,27 +3,20 @@ package com.example.testwork.ui.fragments.main
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.text.TextUtils.join
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentMainBinding
-import com.example.testwork.model.homestore.BestSeller
-import com.example.testwork.model.homestore.Store
+import com.example.testwork.model.store.BestSeller
+import com.example.testwork.model.store.Store
 import com.example.testwork.ui.fragments.pager.PagerAdapter
 import kotlinx.coroutines.*
 import retrofit2.Response
-import java.lang.String.join
-import kotlin.concurrent.thread
 
 class MainFragment : Fragment() {
 
@@ -48,6 +41,7 @@ class MainFragment : Fragment() {
         binding.ivFilter.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_filtersFragment)
         }
+
         binding.btnPhones.setOnClickListener {
             //it.backgroundTintList = (ColorStateList.valueOf(Color.parseColor("#FF6E4E")))
             it.backgroundTintList = resources.getColorStateList(R.color.color_scanner)
@@ -116,6 +110,10 @@ class MainFragment : Fragment() {
             binding.btnPhones.backgroundTintList = resources.getColorStateList(R.color.white)
             binding.tvPhones.setTextColor(ColorStateList.valueOf(Color.parseColor("#FF000000")))
             binding.btnPhones.setImageResource(R.drawable.ic_phone)
+        }
+
+        binding.tvLocal.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_secondFragment2)
         }
 
         return binding.root

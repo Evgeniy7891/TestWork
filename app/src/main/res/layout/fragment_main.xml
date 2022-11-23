@@ -105,6 +105,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:contentDescription="@string/phones"
+                android:tint="@color/white"
+                app:fabCustomSize="55dp"
                 android:src="@drawable/ic_phone"
                 app:backgroundTint="@color/color_icon"
                 app:layout_constraintStart_toStartOf="parent"

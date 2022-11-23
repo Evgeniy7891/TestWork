@@ -1,10 +1,9 @@
 package com.example.testwork.ui.fragments.pager
 
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.testwork.model.homestore.Store
+import com.example.testwork.model.store.Store
 import retrofit2.Response
 
 class PagerAdapter(fragment: FragmentActivity, private val item: Response<Store>) : FragmentStateAdapter(fragment) {

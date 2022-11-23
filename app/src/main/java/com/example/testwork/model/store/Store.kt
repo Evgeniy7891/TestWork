@@ -1,4 +1,4 @@
-package com.example.testwork.model.homestore
+package com.example.testwork.model.store
 
 data class Store(
     val best_seller: List<BestSeller>,

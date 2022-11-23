@@ -1,60 +1,71 @@
 package com.example.testwork.ui.fragments.details
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ScrollingView
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.example.testwork.R
+import com.example.testwork.databinding.FragmentDetailsBinding
+import com.example.testwork.databinding.FragmentMainBinding
+import com.example.testwork.databinding.FragmentSecondBinding
+import com.example.testwork.model.details.Details
+import com.example.testwork.model.store.BestSeller
+import com.example.testwork.model.store.Store
+import com.example.testwork.ui.fragments.main.MainAdapter
+import com.example.testwork.ui.fragments.main.MainViewModel
+import com.google.android.flexbox.AlignContent
+import com.google.android.flexbox.AlignItems
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SecondFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SecondFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentDetailsBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: DetailsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_details, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        viewModel.getDetails()
+        viewModel.detailList.observe(viewLifecycleOwner, {
+            initialImages(it)
+            Log.d("TAG", "Observe")
+        })
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SecondFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SecondFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun initialImages(item: Response<Details>) {
+        val images: List<String> = item.body()?.images!!
+        Log.d("TAG", "FUN - $images")
+//val layoutManager = FlexboxLayoutManager(context).apply {
+//    justifyContent = JustifyContent.CENTER
+//    alignItems = AlignItems.CENTER
+//    flexDirection = FlexDirection.ROW
+//    flexWrap = FlexWrap.WRAP
+//}
+        binding.recyclerviewImageDetails.layoutManager =
+         LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        val data = images
+        val adapter = DetailsAdapter(data)
+        binding.recyclerviewImageDetails.adapter = adapter
     }
 }

@@ -1,17 +1,13 @@
 package com.example.testwork.ui.fragments.main
 
 import android.graphics.Paint
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testwork.R
 import com.example.testwork.databinding.CardBestSellerItemBinding
-import com.example.testwork.model.homestore.BestSeller
+import com.example.testwork.model.store.BestSeller
 
 class MainAdapter(private val mList: List<BestSeller>) :
     RecyclerView.Adapter<MainAdapter.ViewHolder>() {

@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.example.testwork.R
-import com.example.testwork.databinding.FragmentFirstBinding
 import com.example.testwork.databinding.FragmentThirdBinding
-import com.example.testwork.model.homestore.Store
+import com.example.testwork.model.store.Store
 import retrofit2.Response
 
 class ThirdFragment(private val item: Response<Store>) : Fragment() {
