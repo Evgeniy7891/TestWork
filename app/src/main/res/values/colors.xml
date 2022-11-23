@@ -13,4 +13,5 @@
     <color name="color_transparent">#00FFFFFF</color>
     <color name="color_search">#90018786</color>
     <color name="color_filters">#D3100F0F</color>
+    <color name="color_rating">#FFEB3B</color>
 </resources>
