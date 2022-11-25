@@ -14,7 +14,7 @@ import com.example.testwork.R
 import com.example.testwork.databinding.FragmentMainBinding
 import com.example.testwork.model.store.BestSeller
 import com.example.testwork.model.store.Store
-import com.example.testwork.ui.fragments.pager.PagerAdapter
+import com.example.testwork.ui.fragments.main.pager.PagerAdapter
 import kotlinx.coroutines.*
 import retrofit2.Response
 

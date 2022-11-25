@@ -32,7 +32,7 @@
     </fragment>
     <dialog
         android:id="@+id/filtersFragment"
-        android:name="com.example.testwork.ui.fragments.filters.FiltersFragment"
+        android:name="com.example.testwork.ui.fragments.main.filters.FiltersFragment"
         android:label="FiltersFragment" />
     <fragment
         android:id="@+id/secondFragment2"

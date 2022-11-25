@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:foregroundGravity="center_horizontal"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -59,7 +59,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/mark_pro"
                 android:text="Galaxy Note"
                 android:textColor="@color/black"
@@ -85,6 +85,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RatingBar
+                android:id="@+id/rb_star"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:isIndicator="true"
@@ -100,17 +101,41 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_brand_name" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/fab_like"
                 android:layout_width="35dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center_horizontal|start"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/color_like_details"
                 app:cornerRadius="10dp"
-
+                app:icon="@drawable/ic_like_details"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
                 app:iconTint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_brand_name"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tabTextAppearance="@style/TabTextStyle"
+                app:tabIndicatorColor="@color/color_scanner"
+                app:tabSelectedTextColor="@color/color_like_details"
+                app:layout_constraintTop_toBottomOf="@id/rb_star"
+                app:tabMode="fixed"/>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pager_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tab_details" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

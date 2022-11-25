@@ -1,4 +1,4 @@
-package com.example.testwork.ui.fragments.filters
+package com.example.testwork.ui.fragments.main.filters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -14,4 +14,10 @@
     <color name="color_search">#90018786</color>
     <color name="color_filters">#D3100F0F</color>
     <color name="color_rating">#FFEB3B</color>
+    <color name="color_like_details">#010035</color>
+    <color name="color_tab_details">#B7B7B7</color>
+    <color name="color_text_icon_details">#B7B7B7</color>
+    <color name="color_fab_icon_one">#772D03</color>
+    <color name="color_fab_icon_two">#010035</color>
+    <color name="color_fab_icon_memory">#8D8D8D</color>
 </resources>

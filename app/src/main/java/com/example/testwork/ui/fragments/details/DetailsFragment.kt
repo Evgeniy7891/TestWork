@@ -21,14 +21,17 @@ import com.example.testwork.databinding.FragmentSecondBinding
 import com.example.testwork.model.details.Details
 import com.example.testwork.model.store.BestSeller
 import com.example.testwork.model.store.Store
+import com.example.testwork.ui.fragments.details.pager.PagerAdapterDetails
 import com.example.testwork.ui.fragments.main.MainAdapter
 import com.example.testwork.ui.fragments.main.MainViewModel
+import com.example.testwork.ui.fragments.main.pager.PagerAdapter
 import com.google.android.flexbox.AlignContent
 import com.google.android.flexbox.AlignItems
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
+import com.google.android.material.tabs.TabLayoutMediator
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import retrofit2.Response
 
@@ -46,9 +49,15 @@ class SecondFragment : Fragment() {
         viewModel.getDetails()
         viewModel.detailList.observe(viewLifecycleOwner, {
             initialImages(it)
-            Log.d("TAG", "Observe")
         })
-
+        initialPager()
+        TabLayoutMediator(binding.tabDetails, binding.pagerDetails) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Shop"
+                1 -> tab.text = "Details"
+                2 -> tab.text = "Features"
+            }
+        }.attach()
 
         return binding.root
     }
@@ -63,9 +72,12 @@ class SecondFragment : Fragment() {
 //    flexWrap = FlexWrap.WRAP
 //}
         binding.recyclerviewImageDetails.layoutManager =
-         LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         val data = images
         val adapter = DetailsAdapter(data)
         binding.recyclerviewImageDetails.adapter = adapter
+    }
+    private fun initialPager() {
+        binding.pagerDetails.adapter = PagerAdapterDetails(requireActivity())
     }
 }

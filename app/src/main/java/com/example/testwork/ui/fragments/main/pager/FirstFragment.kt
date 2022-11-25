@@ -1,4 +1,4 @@
-package com.example.testwork.ui.fragments.pager
+package com.example.testwork.ui.fragments.main.pager
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
