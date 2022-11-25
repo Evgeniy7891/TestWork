@@ -124,7 +124,7 @@
         android:layout_marginEnd="8dp"
         android:backgroundTint="@color/color_fab_icon_one"
         android:src="@drawable/select_color"
-        android:tint="@color/white"
+        app:tint="@color/white"
         app:fabCustomSize="39dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/fab_color_celect_two"
@@ -139,12 +139,12 @@
         android:layout_marginEnd="24dp"
         android:backgroundTint="@color/color_fab_icon_two"
         android:src="@drawable/select_color"
-        android:tint="@color/white"
         app:fabCustomSize="39dp"
         app:layout_constraintBottom_toBottomOf="@+id/fab_color_celect_one"
         app:layout_constraintEnd_toStartOf="@+id/bt_memmory_phone_one"
         app:layout_constraintStart_toEndOf="@+id/fab_color_celect_one"
-        app:layout_constraintTop_toTopOf="@+id/fab_color_celect_one" />
+        app:layout_constraintTop_toTopOf="@+id/fab_color_celect_one"
+        app:tint="@color/white" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_memmory_phone_one"

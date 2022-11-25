@@ -100,61 +100,62 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_phones"
-                android:layout_width="56dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:contentDescription="@string/phones"
-                android:tint="@color/white"
-                app:fabCustomSize="55dp"
-                android:src="@drawable/ic_phone"
-                app:backgroundTint="@color/color_icon"
+                android:src="@drawable/phone_selector_ic"
+                app:backgroundTint="@color/btn_ic_main_select_color"
+                app:fabCustomSize="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_select_category" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_computer"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:contentDescription="@string/computer"
                 android:src="@drawable/ic_computer"
-                app:backgroundTint="@color/color_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_phones"
-                app:layout_constraintStart_toEndOf="@+id/btn_phones"
-                app:layout_constraintTop_toTopOf="@+id/btn_phones"
-                app:layout_constraintVertical_bias="1.0" />
+                app:backgroundTint="@color/btn_ic_main_select_color"
+                app:fabCustomSize="60dp"
+                app:layout_constraintEnd_toStartOf="@id/btn_health"
+                app:layout_constraintStart_toEndOf="@id/btn_phones"
+                app:layout_constraintTop_toTopOf="@+id/btn_phones" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_health"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:contentDescription="@string/health"
                 android:src="@drawable/ic_health"
-                app:backgroundTint="@color/color_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_computer"
-                app:layout_constraintStart_toEndOf="@+id/btn_computer"
-                app:layout_constraintTop_toTopOf="@+id/btn_computer" />
+                app:backgroundTint="@color/btn_ic_main_select_color"
+                app:fabCustomSize="60dp"
+                app:layout_constraintEnd_toStartOf="@id/btn_books"
+                app:layout_constraintStart_toEndOf="@id/btn_computer"
+                app:layout_constraintTop_toTopOf="@+id/btn_phones" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btn_books"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:contentDescription="@string/books"
                 android:src="@drawable/ic_books"
-                app:backgroundTint="@color/color_icon"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_health"
-                app:layout_constraintStart_toEndOf="@+id/btn_health"
-                app:layout_constraintTop_toTopOf="@+id/btn_health" />
+                app:backgroundTint="@color/btn_ic_main_select_color"
+                app:fabCustomSize="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_health"
+                app:layout_constraintTop_toTopOf="@+id/btn_phones"
+            />
 
             <TextView
                 android:id="@+id/tv_phones"
                 style="@style/TextViewIcon"
+                android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/phones"
-                app:layout_constraintEnd_toEndOf="@+id/btn_phones"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toStartOf="@+id/btn_phones"
                 app:layout_constraintTop_toBottomOf="@+id/btn_phones" />
 

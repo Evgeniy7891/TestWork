@@ -32,6 +32,10 @@ import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import retrofit2.Response
 
@@ -48,36 +52,51 @@ class SecondFragment : Fragment() {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         viewModel.getDetails()
         viewModel.detailList.observe(viewLifecycleOwner, {
-            initialImages(it)
-        })
-        initialPager()
-        TabLayoutMediator(binding.tabDetails, binding.pagerDetails) { tab, position ->
-            when (position) {
-                0 -> tab.text = "Shop"
-                1 -> tab.text = "Details"
-                2 -> tab.text = "Features"
+            initialPager(it)
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(200)
+                initialImages(it)
+                delay(200)
+                initialBrandName(it)
             }
-        }.attach()
-
+        })
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(500)
+            TabLayoutMediator(binding.tabDetails, binding.pagerDetails) { tab, position ->
+                when (position) {
+                    0 -> tab.text = "Shop"
+                    1 -> tab.text = "Details"
+                    2 -> tab.text = "Features"
+                }
+            }.attach()
+        }
+        binding.fabLike.setOnClickListener {
+            if (it.isSelected == false) {
+                it.isSelected = true
+            } else {
+                it.isSelected = false
+            }
+        }
         return binding.root
     }
 
     private fun initialImages(item: Response<Details>) {
         val images: List<String> = item.body()?.images!!
-        Log.d("TAG", "FUN - $images")
-//val layoutManager = FlexboxLayoutManager(context).apply {
-//    justifyContent = JustifyContent.CENTER
-//    alignItems = AlignItems.CENTER
-//    flexDirection = FlexDirection.ROW
-//    flexWrap = FlexWrap.WRAP
-//}
         binding.recyclerviewImageDetails.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
         val data = images
         val adapter = DetailsAdapter(data)
         binding.recyclerviewImageDetails.adapter = adapter
     }
-    private fun initialPager() {
-        binding.pagerDetails.adapter = PagerAdapterDetails(requireActivity())
+
+    private fun initialPager(item: Response<Details>) {
+        binding.pagerDetails.adapter = PagerAdapterDetails(requireActivity(), item)
+    }
+
+    private fun initialBrandName(item: Response<Details>) {
+        binding.tvBrandName.setText(item.body()?.title)
+        if (item.body()?.isFavorites == true) {
+            binding.fabLike.isSelected = true
+        }
     }
 }
