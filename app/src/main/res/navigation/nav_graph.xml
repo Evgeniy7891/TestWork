@@ -13,13 +13,18 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.testwork.ui.fragments.main.MainFragment"
-        android:label="MainFragment" >
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_filtersFragment"
             app:destination="@id/filtersFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_secondFragment2"
-            app:destination="@id/secondFragment2" />
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_cartFragment2"
+            app:destination="@id/cartFragment2" />
+
     </fragment>
     <fragment
         android:id="@+id/splashFragment3"
@@ -33,10 +38,18 @@
     <dialog
         android:id="@+id/filtersFragment"
         android:name="com.example.testwork.ui.fragments.main.filters.FiltersFragment"
-        android:label="FiltersFragment" />
+        android:label="FiltersFragment"
+        tools:layout="@layout/fragment_filters"
+        />
     <fragment
-        android:id="@+id/secondFragment2"
-        android:name="com.example.testwork.ui.fragments.details.SecondFragment"
-        android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        android:id="@+id/detailsFragment"
+        android:name="com.example.testwork.ui.fragments.details.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"/>
+    <fragment
+        android:id="@+id/cartFragment2"
+        android:name="com.example.testwork.ui.fragments.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart"
+        />
 </navigation>

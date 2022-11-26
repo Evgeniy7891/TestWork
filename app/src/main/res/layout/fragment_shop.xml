@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_camera"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_proccesor"
         app:layout_constraintEnd_toStartOf="@id/iv_dimm"
         app:layout_constraintStart_toEndOf="@id/iv_proccesor"
         app:layout_constraintTop_toTopOf="@id/iv_proccesor" />
@@ -31,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_dimm_memmory"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_proccesor"
         app:layout_constraintEnd_toStartOf="@id/iv_ssd"
         app:layout_constraintStart_toEndOf="@id/iv_camera"
         app:layout_constraintTop_toTopOf="@id/iv_proccesor" />
@@ -40,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_ssd"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_proccesor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_dimm"
         app:layout_constraintTop_toTopOf="@id/iv_proccesor" />
@@ -187,7 +190,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/btn_details_to_cart"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -12,19 +12,19 @@
     <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_cart"
-        android:title=""
+        android:title="Cart"
         />
 
     <item
         android:id="@+id/like"
         android:icon="@drawable/ic_like"
-        android:title=""
+        android:title="Favourites"
         />
 
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_profile"
-        android:title=""
+        android:title="Profile"
         />
 
 </menu>

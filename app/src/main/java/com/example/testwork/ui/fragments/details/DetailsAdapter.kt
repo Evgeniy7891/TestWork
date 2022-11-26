@@ -14,7 +14,6 @@ class DetailsAdapter(private val mList: List<String>) : RecyclerView.Adapter<Det
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.d("TAG", "oncREate")
         val binding =
             ItemDetailsImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
@@ -23,7 +22,6 @@ class DetailsAdapter(private val mList: List<String>) : RecyclerView.Adapter<Det
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsImages = mList[position]
         holder.bind(ItemsImages)
-        Log.d("TAG", " o Bind $ItemsImages")
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +31,6 @@ class DetailsAdapter(private val mList: List<String>) : RecyclerView.Adapter<Det
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(images: String) {
-            Log.d("TAG", "bind $images")
             binding.apply {
                 Glide.with(ivImage)
                     .load(images)

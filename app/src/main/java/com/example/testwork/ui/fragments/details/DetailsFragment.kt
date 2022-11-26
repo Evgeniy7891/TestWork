@@ -39,7 +39,7 @@ import kotlinx.coroutines.launch
 import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import retrofit2.Response
 
-class SecondFragment : Fragment() {
+class DetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null
     private val binding get() = _binding!!
@@ -60,7 +60,7 @@ class SecondFragment : Fragment() {
                 initialBrandName(it)
             }
         })
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Main).launch {
             delay(500)
             TabLayoutMediator(binding.tabDetails, binding.pagerDetails) { tab, position ->
                 when (position) {

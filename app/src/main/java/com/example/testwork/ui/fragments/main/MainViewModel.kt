@@ -13,7 +13,7 @@ class MainViewModel : ViewModel() {
     var repository = Repository()
     val phonesList : MutableLiveData<Response<Store>> = MutableLiveData()
 
-    fun getNalMoney() {
+    fun getPhones() {
         viewModelScope.launch {
             phonesList.value = repository.getPhones()
         }

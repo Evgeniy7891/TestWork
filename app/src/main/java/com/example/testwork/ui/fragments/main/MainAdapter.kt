@@ -3,6 +3,9 @@ package com.example.testwork.ui.fragments.main
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testwork.R
@@ -18,23 +21,24 @@ class MainAdapter(private val mList: List<BestSeller>) :
         return ViewHolder(binding)
     }
 
-    // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsBestSeller = mList[position]
         holder.bind(ItemsBestSeller)
     }
 
-    // return the number of the items in the list
     override fun getItemCount(): Int {
         return mList.size
     }
 
-    // Holds the views for adding it to image and text
     class ViewHolder(private val binding: CardBestSellerItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         var like = true
         fun bind(bestSeller: BestSeller) {
             binding.apply {
+                ivPhotoBestSeller.setOnClickListener {
+                    Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_detailsFragment).onClick(it)
+                    //it.findNavController().navigate(R.id.action_mainFragment_to_secondFragment2)
+                }
                 tvPrice.text = "$" + bestSeller.price_without_discount.toString()
                 tvBrand.text = bestSeller.title
                 tvDiscont.text = "$" + bestSeller.discount_price.toString()
