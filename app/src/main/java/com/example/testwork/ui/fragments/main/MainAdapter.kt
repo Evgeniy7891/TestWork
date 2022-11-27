@@ -4,8 +4,6 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testwork.R
@@ -37,7 +35,6 @@ class MainAdapter(private val mList: List<BestSeller>) :
             binding.apply {
                 ivPhotoBestSeller.setOnClickListener {
                     Navigation.createNavigateOnClickListener(R.id.action_mainFragment_to_detailsFragment).onClick(it)
-                    //it.findNavController().navigate(R.id.action_mainFragment_to_secondFragment2)
                 }
                 tvPrice.text = "$" + bestSeller.price_without_discount.toString()
                 tvBrand.text = bestSeller.title
@@ -54,6 +51,8 @@ class MainAdapter(private val mList: List<BestSeller>) :
                 }
                 Glide.with(ivPhotoBestSeller)
                     .load(bestSeller.picture)
+                    .placeholder(R.drawable.ic_image_search)
+                    .error(R.drawable.ic_image_search)
                     .timeout(500)
                     .into(ivPhotoBestSeller)
             }

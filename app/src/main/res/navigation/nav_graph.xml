@@ -40,16 +40,31 @@
         android:name="com.example.testwork.ui.fragments.main.filters.FiltersFragment"
         android:label="FiltersFragment"
         tools:layout="@layout/fragment_filters"
-        />
+        >
+        <action
+            android:id="@+id/action_filtersFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </dialog>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.example.testwork.ui.fragments.details.DetailsFragment"
         android:label="DetailsFragment"
-        tools:layout="@layout/fragment_details"/>
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_cartFragment2"
+            app:destination="@id/cartFragment2" />
+        <action
+            android:id="@+id/action_detailsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment2"
         android:name="com.example.testwork.ui.fragments.cart.CartFragment"
         android:label="CartFragment"
         tools:layout="@layout/fragment_cart"
-        />
+        >
+        <action
+            android:id="@+id/action_cartFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

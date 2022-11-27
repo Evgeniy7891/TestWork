@@ -28,4 +28,9 @@ class ThirdFragment(private val item: Response<Store>) : Fragment() {
             .into(binding.ivPhotoMobile)
         return binding.root
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

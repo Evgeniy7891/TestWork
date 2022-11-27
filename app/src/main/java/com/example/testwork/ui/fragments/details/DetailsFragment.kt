@@ -1,42 +1,23 @@
 package com.example.testwork.ui.fragments.details
 
 import android.os.Bundle
-import android.text.method.ScrollingMovementMethod
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ScrollingView
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.CenterInside
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentDetailsBinding
-import com.example.testwork.databinding.FragmentMainBinding
-import com.example.testwork.databinding.FragmentSecondBinding
 import com.example.testwork.model.details.Details
-import com.example.testwork.model.store.BestSeller
-import com.example.testwork.model.store.Store
 import com.example.testwork.ui.fragments.details.pager.PagerAdapterDetails
-import com.example.testwork.ui.fragments.main.MainAdapter
-import com.example.testwork.ui.fragments.main.MainViewModel
-import com.example.testwork.ui.fragments.main.pager.PagerAdapter
-import com.google.android.flexbox.AlignContent
-import com.google.android.flexbox.AlignItems
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexWrap
-import com.google.android.flexbox.FlexboxLayoutManager
-import com.google.android.flexbox.JustifyContent
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import retrofit2.Response
 
 class DetailsFragment : Fragment() {
@@ -51,6 +32,7 @@ class DetailsFragment : Fragment() {
     ): View? {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         viewModel.getDetails()
+        listeners()
         viewModel.detailList.observe(viewLifecycleOwner, {
             initialPager(it)
             CoroutineScope(Dispatchers.Main).launch {
@@ -70,13 +52,6 @@ class DetailsFragment : Fragment() {
                 }
             }.attach()
         }
-        binding.fabLike.setOnClickListener {
-            if (it.isSelected == false) {
-                it.isSelected = true
-            } else {
-                it.isSelected = false
-            }
-        }
         return binding.root
     }
 
@@ -89,6 +64,22 @@ class DetailsFragment : Fragment() {
         binding.recyclerviewImageDetails.adapter = adapter
     }
 
+    private fun listeners(){
+        binding.fabLike.setOnClickListener {
+            if (it.isSelected == false) {
+                it.isSelected = true
+            } else {
+                it.isSelected = false
+            }
+        }
+        binding.ivToCart.setOnClickListener {
+            findNavController().navigate(R.id.action_detailsFragment_to_cartFragment2)
+        }
+        binding.ivBack.setOnClickListener {
+            findNavController().navigate(R.id.action_detailsFragment_to_mainFragment)
+        }
+    }
+
     private fun initialPager(item: Response<Details>) {
         binding.pagerDetails.adapter = PagerAdapterDetails(requireActivity(), item)
     }
@@ -98,5 +89,10 @@ class DetailsFragment : Fragment() {
         if (item.body()?.isFavorites == true) {
             binding.fabLike.isSelected = true
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

@@ -1,23 +1,16 @@
 package com.example.testwork.ui.fragments.main
 
-import android.app.Activity
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.testwork.R
 import com.example.testwork.databinding.FragmentMainBinding
 import com.example.testwork.model.store.BestSeller
 import com.example.testwork.model.store.Store
-import com.example.testwork.ui.activity.MainActivity
 import com.example.testwork.ui.fragments.main.pager.PagerAdapter
 import kotlinx.coroutines.*
 import retrofit2.Response
@@ -33,7 +26,6 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
-        //  val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         selectIconListener()
         viewModel.getPhones()
         viewModel.phonesList.observe(viewLifecycleOwner, {
@@ -43,20 +35,19 @@ class MainFragment : Fragment() {
                 initialBestSeller(it)
             }
         })
+
         binding.ivFilter.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_filtersFragment)
         }
-
-
         binding.recyclerview.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_detailsFragment)
         }
-
+        updateBadgeCart(2)
         binding.bottomMenu.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.explorer -> Toast.makeText(context, "Explorer", Toast.LENGTH_SHORT).show()
                 R.id.cart -> findNavController().navigate(R.id.action_mainFragment_to_cartFragment2)
-                R.id.like ->Toast.makeText(context, "Like", Toast.LENGTH_SHORT).show()
+                R.id.like -> Toast.makeText(context, "Like", Toast.LENGTH_SHORT).show()
                 R.id.profile -> Toast.makeText(context, "Profile", Toast.LENGTH_SHORT).show()
             }
             true
@@ -76,6 +67,13 @@ class MainFragment : Fragment() {
         val adapter = MainAdapter(data)
         binding.recyclerview.adapter = adapter
     }
+
+
+     fun updateBadgeCart(count: Int) {
+         binding.bottomMenu.getOrCreateBadge(R.id.cart).number = count
+        }
+
+
 
     private fun selectIconListener() {
         with(binding) {
@@ -122,6 +120,10 @@ class MainFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }
 
 

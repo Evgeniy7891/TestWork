@@ -7,11 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.testwork.R
-import com.example.testwork.databinding.FragmentFirstBinding
 import com.example.testwork.databinding.FragmentShopBinding
 import com.example.testwork.model.details.Details
-import com.example.testwork.model.store.Store
 import retrofit2.Response
 
 class ShopFragment(private val item: Response<Details>) : Fragment() {
@@ -26,6 +23,7 @@ class ShopFragment(private val item: Response<Details>) : Fragment() {
         _binding = FragmentShopBinding.inflate(inflater, container, false)
         listeners()
         initialShopDetails(item)
+
         return binding.root
     }
 
@@ -61,5 +59,9 @@ class ShopFragment(private val item: Response<Details>) : Fragment() {
             btMemmoryPhoneOne.setText(item.body()?.capacity?.get(0))
             btMemmoryPhoneTwo.setText(item.body()?.capacity?.get(1))
         }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

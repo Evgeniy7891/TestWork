@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.testwork.R
 import com.example.testwork.databinding.CardCartBinding
 import com.example.testwork.model.cart.Basket
 
@@ -37,6 +38,8 @@ class CartAdapter(private val mList: List<Basket>) :
                 tvPrice.setText("$"+basket.price.toString())
                 Glide.with(ivPhoto)
                     .load(basket.images)
+                    .placeholder(R.drawable.ic_image_search)
+                    .error(R.drawable.ic_image_search)
                     .timeout(500)
                     .into(ivPhoto)
             }

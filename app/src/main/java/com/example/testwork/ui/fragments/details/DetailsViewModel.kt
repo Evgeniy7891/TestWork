@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testwork.data.repository.Repository
 import com.example.testwork.model.details.Details
-import com.example.testwork.model.store.Store
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

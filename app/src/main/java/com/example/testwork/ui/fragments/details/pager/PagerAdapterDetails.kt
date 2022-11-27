@@ -4,7 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.testwork.model.details.Details
-import com.example.testwork.model.store.Store
 import retrofit2.Response
 
 class PagerAdapterDetails (fragment: FragmentActivity, private val item: Response<Details>) : FragmentStateAdapter(fragment){
