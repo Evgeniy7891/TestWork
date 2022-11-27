@@ -38,7 +38,7 @@ class CartFragment : Fragment() {
                 initialCart(it.body()?.basket!!)
             }
             binding.ivBack.setOnClickListener {
-                findNavController().navigate(R.id.action_cartFragment2_to_mainFragment)
+                findNavController().navigateUp()
             }
         })
         return binding.root

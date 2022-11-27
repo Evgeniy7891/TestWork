@@ -22,7 +22,7 @@ class FiltersFragment : BottomSheetDialogFragment() {
     ): View? {
         _binding = FragmentFiltersBinding.inflate(inflater, container, false)
         binding.ivClose.setOnClickListener {
-            findNavController().navigate(R.id.action_filtersFragment_to_mainFragment)
+            findNavController().navigateUp()
         }
         return binding.root
     }

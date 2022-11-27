@@ -76,7 +76,7 @@ class DetailsFragment : Fragment() {
             findNavController().navigate(R.id.action_detailsFragment_to_cartFragment2)
         }
         binding.ivBack.setOnClickListener {
-            findNavController().navigate(R.id.action_detailsFragment_to_mainFragment)
+           findNavController().navigate(R.id.action_detailsFragment_to_mainFragment)
         }
     }
 
